@@ -1,6 +1,7 @@
 package bibilioteka;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Knjiga {
 	private String naslov;
@@ -47,6 +48,30 @@ public class Knjiga {
 
 	public void setAutori(List<Autor> autori) {
 		this.autori = autori;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(autori, isbn, izdanje, izdavac, naslov);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Knjiga other = (Knjiga) obj;
+		return Objects.equals(autori, other.autori) && isbn == other.isbn && izdanje == other.izdanje
+				&& Objects.equals(izdavac, other.izdavac) && Objects.equals(naslov, other.naslov);
+	}
+
+	@Override
+	public String toString() {
+		return "Knjiga [naslov=" + naslov + ", isbn=" + isbn + ", autori=" + autori + ", izdavac=" + izdavac
+				+ ", izdanje=" + izdanje + "]";
 	}
 
 }
