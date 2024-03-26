@@ -9,6 +9,7 @@ public class Knjiga {
 	private List<Autor> autori;
 	private String izdavac;
 	private int izdanje;
+	private String test;
 
 	public String getNaslov() {
 		return naslov;
